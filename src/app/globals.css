@@ -1,0 +1,173 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Custom marquue dans HeaderOne.tsx */
+
+.marquee-container {
+  flex: 1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #602305, #5a321a);
+  border-radius: 8px;
+  padding: 10px 0;
+  margin: 0 20px;
+  position: relative;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 1;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #602305, transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #5a321a, transparent);
+}
+
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-item {
+  font-weight: 700;
+  font-size: 15px;
+  margin-right: 50px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.marquee-item.offer {
+  color:  #f5f0eb;
+}
+
+.marquee-item.delivery {
+  color: #b5997e;
+}
+
+.marquee-item.reservation {
+  color: #994f14;
+
+}
+
+.marquee-separator {
+  color: #fff;
+  margin-right: 50px;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+/* End of custom marquee styles */
+/* Custom slider styles */
+.mobile-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-action-btn {
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* End of custom slider styles */
+/* Gerer paniers dans hearderNav.tsx */
+.nav-and-btn-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.right-btn-area {
+  position: relative;
+  overflow: visible;
+}
+
+.right-btn-area .card-number-show {
+  z-index: 9999;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+/*Ajouter ces styles pour fixer le scroll du dropdown*/
+.card-number-show {
+  max-height: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-number-show .shopping-cart-number {
+  flex-shrink: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.card-number-show .sub-total-cart-balance {
+  flex-shrink: 0;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.card-number-show .cart-item-1 {
+  overflow-y: auto;
+  flex: 1;
+}
