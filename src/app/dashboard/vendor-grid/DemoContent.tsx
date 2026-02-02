@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React, { JSX, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface Vendor {
   id: number;
   name: string;
-  status: 'Open' | 'Closed';
+  status: "Open" | "Closed";
   rating: number;
   location: string;
   phone: string;
@@ -13,96 +13,101 @@ interface Vendor {
 }
 
 const VendorGrid = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  
+  const [searchTerm, setSearchTerm] = useState("");
+
   // Vendor data array
   const vendors: Vendor[] = [
     {
       id: 1,
-      name: 'Fresh Juice Bar',
-      status: 'Closed',
+      name: "Fresh Juice Bar",
+      status: "Closed",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/01.svg'
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/01.svg",
     },
     {
       id: 2,
-      name: 'Brazilian Food',
-      status: 'Open',
+      name: "Brazilian Food",
+      status: "Open",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/02.svg'
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/02.svg",
     },
     {
       id: 3,
-      name: 'Fresh Juice Bar',
-      status: 'Open',
+      name: "Fresh Juice Bar",
+      status: "Open",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/03.svg'
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/03.svg",
     },
     {
       id: 4,
-      name: 'Food Character',
-      status: 'Open',
+      name: "Food Character",
+      status: "Open",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/04.svg'
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/04.svg",
     },
     {
       id: 5,
-      name: 'Authentic Grocery',
-      status: 'Open',
+      name: "Authentic Grocery",
+      status: "Open",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/05.svg'
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/05.svg",
     },
     {
       id: 6,
-      name: 'Food Character',
-      status: 'Open',
+      name: "Food Character",
+      status: "Open",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/06.svg'
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/06.svg",
     },
     {
       id: 7,
-      name: 'Fresh Food',
-      status: 'Open',
+      name: "Fresh Food",
+      status: "Open",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/07.svg'
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/07.svg",
     },
     {
       id: 8,
-      name: 'Botanic Natural',
-      status: 'Open',
+      name: "Botanic Natural",
+      status: "Open",
       rating: 4.5,
-      location: '530 Post Ct El Dorado Hills California, United States',
-      phone: '+1 (511) 934-8170',
-      image: '/assets/images-dashboard/vendor/08.svg'
-    }
+      location: "530 Post Ct El Dorado Hills California, United States",
+      phone: "+1 (511) 934-8170",
+      image: "/assets/images-dashboard/vendor/08.svg",
+    },
   ];
 
   // Filter vendors based on search term
-  const filteredVendors = vendors.filter(vendor => 
-    vendor.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    vendor.id.toString().includes(searchTerm)
+  const filteredVendors = vendors.filter(
+    (vendor) =>
+      vendor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      vendor.id.toString().includes(searchTerm),
   );
 
   // Render star ratings
+  // Render star ratings
   const renderStars = (rating: number) => {
-    const stars = [];
+    const stars: JSX.Element[] = [];
     for (let i = 0; i < 5; i++) {
       stars.push(
-        <i key={i} className={`fa-solid fa-star ${i < Math.floor(rating) ? 'filled' : ''}`} />
+        <i
+          key={i}
+          className={`fa-solid fa-star ${i < Math.floor(rating) ? "filled" : ""}`}
+        />,
       );
     }
     return stars;
@@ -124,14 +129,20 @@ const VendorGrid = () => {
       {/* Vendor search area */}
       <div className="vendor-grid-top-search-area">
         <h5 className="title">Vendors Card</h5>
-        <form onSubmit={handleSearchSubmit} className="input-area-search-head-vendor">
-          <input 
-            type="text" 
-            placeholder="Search vendors (by name or ID)..." 
+        <form
+          onSubmit={handleSearchSubmit}
+          className="input-area-search-head-vendor"
+        >
+          <input
+            type="text"
+            placeholder="Search vendors (by name or ID)..."
             value={searchTerm}
             onChange={handleSearchChange}
           />
-          <button type="submit" className="rts-btn btn-primary radious-sm with-icon">
+          <button
+            type="submit"
+            className="rts-btn btn-primary radious-sm with-icon"
+          >
             <div className="btn-text">Search</div>
             <div className="arrow-icon">
               <i className="fa-light fa-magnifying-glass" />
@@ -145,19 +156,20 @@ const VendorGrid = () => {
 
       {/* Vendor grid */}
       <div className="row mt--10 g-xl-5 g-lg-4 g-4">
-        {filteredVendors.map(vendor => (
-          <div key={vendor.id} className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+        {filteredVendors.map((vendor) => (
+          <div
+            key={vendor.id}
+            className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12"
+          >
             <div className="single-vendor-area">
               <div className="logo-vendor">
-                <Image 
-                  src={vendor.image} 
-                  alt="vendor" 
-                  width={80} 
-                  height={80}
-                />
+                <Image src={vendor.image} alt="vendor" width={80} height={80} />
               </div>
               <h3 className="title animated fadeIn">
-                {vendor.name} <span className={vendor.status.toLowerCase()}>{vendor.status}</span>
+                {vendor.name}{" "}
+                <span className={vendor.status.toLowerCase()}>
+                  {vendor.status}
+                </span>
               </h3>
               <div className="stars-area">
                 {renderStars(vendor.rating)}
@@ -194,9 +206,15 @@ const VendorGrid = () => {
           <p>Copyright © 2025 All Right Reserved.</p>
         </div>
         <ul>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Help</a></li>
+          <li>
+            <a href="#">Terms</a>
+          </li>
+          <li>
+            <a href="#">Privacy</a>
+          </li>
+          <li>
+            <a href="#">Help</a>
+          </li>
         </ul>
       </div>
     </div>
