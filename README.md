@@ -1,8 +1,8 @@
-# Restaurant Platana 🍽️
+# Restaurant Platana
 
 Un site web moderne pour le Restaurant Platana, spécialisé dans la cuisine africaine authentique.
 
-## 🌟 Caractéristiques
+##  Caractéristiques
 
 - **Menu en ligne** : Découvrez nos plats traditionnels africains
 - **Commandes en ligne** : Commandez vos plats favoris directement sur le site
@@ -10,7 +10,7 @@ Un site web moderne pour le Restaurant Platana, spécialisé dans la cuisine afr
 - **Dashboard** : Interface d'administration complète
 - **Responsive Design** : Compatible avec tous les appareils
 
-## 🍽️ Nos Spécialités
+## Nos Spécialités
 
 - Plateau de grillade
 - Garba familiale
@@ -20,7 +20,7 @@ Un site web moderne pour le Restaurant Platana, spécialisé dans la cuisine afr
 - Sauce graine foutou
 - Et bien plus encore...
 
-## 🚀 Technologies Utilisées
+## Technologies Utilisées
 
 - **Next.js 16** - Framework React moderne
 - **TypeScript** - Pour un code plus robuste
@@ -28,12 +28,12 @@ Un site web moderne pour le Restaurant Platana, spécialisé dans la cuisine afr
 - **Bootstrap 5** - Framework CSS
 - **React Toastify** - Notifications utilisateur
 
-## 📱 Contact
+## Contact
 
 - **Téléphone** : +1 438 380 5223
 - **Horaires** : Ouvert tous les jours de 11h00 à 23h00
 
-## 🛠️ Installation et Développement
+## Installation et Développement
 
 ```bash
 # Installer les dépendances
@@ -49,7 +49,7 @@ npm run build
 npm start
 ```
 
-## 📄 Licence
+## Licence
 
 Copyright 2025 © Restaurant Platana. Tous droits réservés.
 
